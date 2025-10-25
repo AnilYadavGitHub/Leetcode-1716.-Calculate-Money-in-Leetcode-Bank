@@ -1,0 +1,39 @@
+class Solution {
+public:
+    int totalMoney(int n) {
+        
+        int ans = 0;
+        
+        if(n <= 7){
+            for(int i = 1 ; i <= n ; i++){
+                ans += i;
+            }
+            return ans;
+        }
+        
+
+        int m = n / 7;
+        int m1 = n % 7;
+        
+        int idx = 1;
+        int c = 0;
+        while(m--){
+           int d = 7;
+           while(d--){
+             ans += idx;
+             idx++;
+           }
+
+           c++;
+           idx = c + 1;
+        }
+
+
+        while(m1--){
+            ans += idx;
+            idx++;
+        }
+
+        return ans;
+    }
+};
